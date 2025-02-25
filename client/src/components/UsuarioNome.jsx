@@ -21,7 +21,7 @@ const UsuarioNome = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/usuarios").then((res) => {
+    fetch("https://sistemagestaocomercial.onrender.com/usuarios").then((res) => {
 
     return res.json()
 
@@ -42,7 +42,7 @@ const UsuarioNome = () => {
   
   const handleDelete = (id) => {   
 
-        fetch("http://localhost:3000/usuarios/" + id, {
+        fetch("https://sistemagestaocomercial.onrender.com/usuarios/" + id, {
 
             method: "DELETE"    
 

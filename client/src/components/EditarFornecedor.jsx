@@ -12,7 +12,7 @@ const EditarFornecedor = () => {
     //const [empdata, empdatachange] = useState({});
 
     useEffect(() => {
-        fetch("http://localhost:3000/fornecedor/" + forcod).then((res) => {
+        fetch("https://sistemagestaocomercial.onrender.com/fornecedor/" + forcod).then((res) => {
             return res.json();
         }).then((resp) => {
             idchange(resp.id);
@@ -23,7 +23,7 @@ const EditarFornecedor = () => {
             cepchange(resp.cep);
             cidadechange(resp.cidade);
             emailchange(resp.email);
-            fonechange(resp.fone);           
+            fonechange(resp.fone);
             //categoriachange(resp.categoria)       
 
         }).catch((err) => {
@@ -31,10 +31,10 @@ const EditarFornecedor = () => {
         })
     }, []);
 
-    const [id, idchange] = useState("") 
-    const [nome, nomechange] = useState("") 
+    const [id, idchange] = useState("")
+    const [nome, nomechange] = useState("")
     const [endereco, enderecochange] = useState("")
-    const [categoria, categoriachange] = useState([])   
+    const [categoria, categoriachange] = useState([])
     const [numero, numerochange] = useState("")
     const [comp, compchange] = useState("")
     const [cep, cepchange] = useState("")
@@ -43,179 +43,179 @@ const EditarFornecedor = () => {
     const [fone, fonechange] = useState("")
 
     useEffect(() => {
-        fetch("http://localhost:3000/catfornecedor").then((res) => {
-    
-          return res.json()
-    
+        fetch("https://sistemagestaocomercial.onrender.com/catfornecedor").then((res) => {
+
+            return res.json()
+
         }).then((resp) => {
-    
-          categoriachange(resp)
-    
+
+            categoriachange(resp)
+
         }).catch((err) => {
-          console.log(err.message)
+            console.log(err.message)
         })
-      }, [])
+    }, [])
 
     const [values, setValues] = useState({
         id: ''
-      })
+    })
 
-const isValidate = () => {
-    let isproceed = true
-    let errormessage = "Campos não podem estar vazio  !"   
+    const isValidate = () => {
+        let isproceed = true
+        let errormessage = "Campos não podem estar vazio  !"
 
-    if (nome === null || nome === '') {
-      document.getElementById('nome').style.borderColor='red';
-      isproceed = false
-      //errormessage += 'Nome:' 
+        if (nome === null || nome === '') {
+            document.getElementById('nome').style.borderColor = 'red';
+            isproceed = false
+            //errormessage += 'Nome:' 
+        }
+        if (endereco === null || endereco === '') {
+            document.getElementById('endereco').style.borderColor = 'red';
+            isproceed = false
+            //errormessage += 'Nome Completo:' 
+        }
+        if (cep === null || cep === '') {
+            document.getElementById('cep').style.borderColor = 'red';
+            isproceed = false
+            // errormessage += 'Email:' 
+        }
+        if (cidade === null || cidade === '') {
+            document.getElementById('cidade').style.borderColor = 'red';
+            isproceed = false
+            // errormessage += 'Senha:' 
+        }
+        if (document.getElementById('categoria').value === null || document.getElementById('categoria').value === '') {
+            document.getElementById('categoria').style.borderColor = 'red';
+            isproceed = false
+            // errormessage += 'Senha:' 
+        }
+
+
+
+        if (!isproceed) {
+            toast.warning(errormessage)
+
+        } else {
+            if (/^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+
+            } else {
+                isproceed = false;
+                toast.warning('Entre com um email valido !')
+                document.getElementById('email').style.borderColor = 'red';
+
+            }
+        }
+        if (isproceed) {
+
+            if (/^[a-zA-Z\u00C0-\u00FF]+/i.test(nome)) {
+
+            } else {
+                isproceed = false;
+                toast.warning('Entre com um nome valido !')
+                document.getElementById('nome').style.borderColor = 'red';
+
+            }
+
+        }
+        if (isproceed) {
+
+            if (/^[a-zA-Z-/0-9\u00C0-\u00FF ]+/i.test(endereco)) {
+
+            } else {
+                isproceed = false;
+                toast.warning('Entre com um endereço valido !')
+                document.getElementById('endereco').style.borderColor = 'red';
+
+            }
+
+        }
+        if (isproceed) {
+
+            if (/^[0-9-]+$/.test(cep)) {
+
+            } else {
+                isproceed = false;
+                toast.warning('Entre com um cep valido !')
+                document.getElementById('cep').style.borderColor = 'red';
+
+            }
+
+        }
+        if (isproceed) {
+
+            if (/^[a-zA-Z\u00C0-\u00FF ]+/i.test(cidade)) {
+
+            } else {
+                isproceed = false;
+                toast.warning('Entre com uma cidade valida !')
+                document.getElementById('cidade').style.borderColor = 'red';
+
+            }
+
+        }
+        if (isproceed) {
+
+            if (/^[0-9-() ]+$/.test(fone)) {
+
+            } else {
+                isproceed = false;
+                toast.warning('Entre com um telefone valido !')
+                document.getElementById('fone').style.borderColor = 'red';
+
+            }
+
+        }
+
+        return isproceed
+
+
     }
-    if (endereco === null || endereco === '') {
-      document.getElementById('endereco').style.borderColor='red';
-      isproceed = false
-      //errormessage += 'Nome Completo:' 
-    }
-    if (cep === null || cep === '') {
-      document.getElementById('cep').style.borderColor='red';
-      isproceed = false
-      // errormessage += 'Email:' 
-    }
-    if (cidade === null || cidade === '') {
-      document.getElementById('cidade').style.borderColor='red';
-      isproceed = false
-      // errormessage += 'Senha:' 
-    }
-    if (document.getElementById('categoria').value === null || document.getElementById('categoria').value  === '') {
-        document.getElementById('categoria').style.borderColor='red';
-        isproceed = false
-        // errormessage += 'Senha:' 
-      }
-    
-    
 
-    if (!isproceed) {
-      toast.warning(errormessage)
-
-    } else {
-      if (/^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
-
-      } else {
-        isproceed = false;
-        toast.warning('Entre com um email valido !')
-        document.getElementById('email').style.borderColor='red';
- 
-      }
-    }
-    if(isproceed){      
-
-      if (/^[a-zA-Z\u00C0-\u00FF]+/i.test(nome)) {
-
-      } else {
-        isproceed = false;
-        toast.warning('Entre com um nome valido !')
-        document.getElementById('nome').style.borderColor='red';
- 
-      }
-
-    }
-    if(isproceed){      
-
-      if (/^[a-zA-Z-/0-9\u00C0-\u00FF ]+/i.test(endereco)) {
-
-      } else {
-        isproceed = false;
-        toast.warning('Entre com um endereço valido !')
-        document.getElementById('endereco').style.borderColor='red';
- 
-      }
-
-    }
-    if(isproceed){      
-
-      if (/^[0-9-]+$/.test(cep)) {
-
-      } else {
-        isproceed = false;
-        toast.warning('Entre com um cep valido !')
-        document.getElementById('cep').style.borderColor='red';
- 
-      }
-
-    }
-    if(isproceed){      
-
-      if (/^[a-zA-Z\u00C0-\u00FF ]+/i.test(cidade)) {
-
-      } else {
-        isproceed = false;
-        toast.warning('Entre com uma cidade valida !')
-        document.getElementById('cidade').style.borderColor='red';
- 
-      }
-
-    }
-    if(isproceed){      
-
-      if (/^[0-9-() ]+$/.test(fone)) {
-
-      } else {
-        isproceed = false;
-        toast.warning('Entre com um telefone valido !')
-        document.getElementById('fone').style.borderColor='red';
- 
-      }
-
-    }
-   
-    return isproceed
-
-
-  }
-
-    function mudacor(){
+    function mudacor() {
         //Ação de muda cor
-        document.getElementById('nome').style.borderColor='Gainsboro';
-      
+        document.getElementById('nome').style.borderColor = 'Gainsboro';
+
     }
 
 
-    function mudacorEnd(){
+    function mudacorEnd() {
 
-        document.getElementById('endereco').style.borderColor='Gainsboro';
-      
-      }
-      function mudacorCep(){
-      
-        document.getElementById('cep').style.borderColor='Gainsboro';
-      
-      }
-      function mudacorCidade(){
-      
-        document.getElementById('cidade').style.borderColor='Gainsboro';
-      
-      }
-      
-      function mudacorEmail(){
-      
-        document.getElementById('email').style.borderColor='Gainsboro';
-      
-      }
-      
-      function mudacorFone(){
-      
-        document.getElementById('fone').style.borderColor='Gainsboro';
-      
-      }
-      function mudacorNumero(){
-      
-        document.getElementById('numero').style.borderColor='Gainsboro';
-        document.getElementById('comp').style.borderColor='Gainsboro';
-      }
-      function mudacorComp(){
-      
-        document.getElementById('comp').style.borderColor='Gainsboro';
-        document.getElementById('numero').style.borderColor='Gainsboro';
-      
-      }
+        document.getElementById('endereco').style.borderColor = 'Gainsboro';
+
+    }
+    function mudacorCep() {
+
+        document.getElementById('cep').style.borderColor = 'Gainsboro';
+
+    }
+    function mudacorCidade() {
+
+        document.getElementById('cidade').style.borderColor = 'Gainsboro';
+
+    }
+
+    function mudacorEmail() {
+
+        document.getElementById('email').style.borderColor = 'Gainsboro';
+
+    }
+
+    function mudacorFone() {
+
+        document.getElementById('fone').style.borderColor = 'Gainsboro';
+
+    }
+    function mudacorNumero() {
+
+        document.getElementById('numero').style.borderColor = 'Gainsboro';
+        document.getElementById('comp').style.borderColor = 'Gainsboro';
+    }
+    function mudacorComp() {
+
+        document.getElementById('comp').style.borderColor = 'Gainsboro';
+        document.getElementById('numero').style.borderColor = 'Gainsboro';
+
+    }
 
 
 
@@ -223,60 +223,60 @@ const isValidate = () => {
 
         e.preventDefault();
 
-           if (isValidate()) {
+        if (isValidate()) {
 
-                     Swal.fire({
-                                title: "Deseja salvar ?",
-                                showDenyButton: true,
-                                showCancelButton: true,
-                                confirmButtonText: "Salvar",
-                                denyButtonText: `Não Salvar`
-                                }).then((result) => {
-                                     
-                                if (result.isConfirmed) {
-                                    const catforn = document.getElementById('categoria').value;              
-                                    const data = new Date();
-                                    const datacad = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
-                                    const edtobj = { nome, endereco, comp, cep, cidade, email, fone, datacad, catforn, numero }
-                            
-                                    fetch("http://localhost:3000/fornecedor/" + forcod, {
-                                      method: "PUT",
-                                      headers: { 'content-type': 'application/json' },
-                                      body: JSON.stringify(edtobj)
-                                    }).then((res) => {
-                                      toast.success('Atualizado com sucesso !')
-                                      nomechange('');
-                                      enderecochange('');
-                                      numerochange('');
-                                      compchange('');
-                                      cepchange('');
-                                      cidadechange('');
-                                      emailchange('');
-                                      fonechange('');
-                      
-                                      document.getElementById('nome').style.borderColor='Gainsboro';
-                                      document.getElementById('endereco').style.borderColor='Gainsboro';
-                                      document.getElementById('cep').style.borderColor='Gainsboro';
-                                      document.getElementById('cidade').style.borderColor='Gainsboro';
-                                      document.getElementById('email').style.borderColor='Gainsboro';
-                                      document.getElementById('fone').style.borderColor='Gainsboro';
-                                      document.getElementById('comp').style.borderColor='Gainsboro';
-                                      document.getElementById('numero').style.borderColor='Gainsboro';
-                
-                                    }).catch((err) => {
-                                      toast.error('Erro ! :' + err.message)
-                                    }) 
+            Swal.fire({
+                title: "Deseja salvar ?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Salvar",
+                denyButtonText: `Não Salvar`
+            }).then((result) => {
 
-                                }else if (result.isDenied) {
-                                   Swal.fire("Nada salvo", "", "info");
-                                }
-                                })           
-                                 
-             
-      
-                            }
+                if (result.isConfirmed) {
+                    const catforn = document.getElementById('categoria').value;
+                    const data = new Date();
+                    const datacad = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+                    const edtobj = { nome, endereco, comp, cep, cidade, email, fone, datacad, catforn, numero }
 
- }
+                    fetch("https://sistemagestaocomercial.onrender.com/fornecedor/" + forcod, {
+                        method: "PUT",
+                        headers: { 'content-type': 'application/json' },
+                        body: JSON.stringify(edtobj)
+                    }).then((res) => {
+                        toast.success('Atualizado com sucesso !')
+                        nomechange('');
+                        enderecochange('');
+                        numerochange('');
+                        compchange('');
+                        cepchange('');
+                        cidadechange('');
+                        emailchange('');
+                        fonechange('');
+
+                        document.getElementById('nome').style.borderColor = 'Gainsboro';
+                        document.getElementById('endereco').style.borderColor = 'Gainsboro';
+                        document.getElementById('cep').style.borderColor = 'Gainsboro';
+                        document.getElementById('cidade').style.borderColor = 'Gainsboro';
+                        document.getElementById('email').style.borderColor = 'Gainsboro';
+                        document.getElementById('fone').style.borderColor = 'Gainsboro';
+                        document.getElementById('comp').style.borderColor = 'Gainsboro';
+                        document.getElementById('numero').style.borderColor = 'Gainsboro';
+
+                    }).catch((err) => {
+                        toast.error('Erro ! :' + err.message)
+                    })
+
+                } else if (result.isDenied) {
+                    Swal.fire("Nada salvo", "", "info");
+                }
+            })
+
+
+
+        }
+
+    }
 
     const logout = () => {
         localStorage.clear()
@@ -399,7 +399,7 @@ const isValidate = () => {
                                 </Link>
                             </li>
 
-                            
+
                             <li className="w-100" onClick={logout}>
                                 <Link to='/'
                                     className="nav-link px-0 align-middle text-white"
@@ -445,7 +445,7 @@ const isValidate = () => {
                                 </div>
                                 <div className='mb-3'>
                                     <label htmlFor='comp' style={{ fontSize: '20px', margin: '0 115px' }}>Complemento:</label>
-                                    <input type='text' value={comp} onChange={e => compchange(e.target.value)} onKeyUp={mudacorComp} style={{ fontSize: '20px', width: 120, margin: '0 115px' }} className='form-control rounded-0' id="comp"/>
+                                    <input type='text' value={comp} onChange={e => compchange(e.target.value)} onKeyUp={mudacorComp} style={{ fontSize: '20px', width: 120, margin: '0 115px' }} className='form-control rounded-0' id="comp" />
 
                                 </div>
                                 <div className='mb-3'>
@@ -460,7 +460,7 @@ const isValidate = () => {
                                 </div>
                                 <div className='mb-3'>
                                     <label htmlFor='email' style={{ fontSize: '20px', margin: '0 115px' }}>Email:</label>
-                                    <input type='email' placeholder='Entre com o email:' value={email} onChange={e => emailchange(e.target.value)} onKeyUp={mudacorEmail} style={{ fontSize: '20px', width: 320, margin: '0 115px' }} className='form-control rounded-0' name='email'  id="email"/>
+                                    <input type='email' placeholder='Entre com o email:' value={email} onChange={e => emailchange(e.target.value)} onKeyUp={mudacorEmail} style={{ fontSize: '20px', width: 320, margin: '0 115px' }} className='form-control rounded-0' name='email' id="email" />
 
                                 </div>
                                 <div className='mb-3'>

@@ -13,7 +13,7 @@ const CatFornecedores = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/catfornecedor").then((res) => {
+    fetch("https://sistemagestaocomercial.onrender.com/catfornecedor").then((res) => {
 
     return res.json()
 
@@ -39,7 +39,7 @@ const CatFornecedores = () => {
                               
                       if (result.isConfirmed) {
 
-                        fetch("http://localhost:3000/catfornecedor/" + id, {
+                        fetch("https://sistemagestaocomercial.onrender.com/catfornecedor/" + id, {
 
                           method: "DELETE"    
               
@@ -56,9 +56,8 @@ const CatFornecedores = () => {
                       } else if (result.isDenied) {
                         Swal.fire("Nada excluido", "", "info");
                       }
-                    });    
-
-        
+                    });  
+       
  
 }
 

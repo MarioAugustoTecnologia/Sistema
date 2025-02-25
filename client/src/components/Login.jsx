@@ -1,4 +1,4 @@
-import React, {useState} from 'react';//4=> criação do Login...
+import React, {useState} from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import bcrypt from 'bcryptjs';
@@ -20,7 +20,7 @@ const Login = () => {
     if(validate()){ 
 
       //console.log('proceed')
-      fetch('http://localhost:3000/usuarios/' + usuario).then((res) => {
+      fetch('https://sistemagestaocomercial.onrender.com/usuarios/' + usuario).then((res) => {
         
         return res.json()
   

@@ -16,7 +16,7 @@ const ComprasNumero = () => {
 
     useEffect(() => {
 
-        fetch("http://localhost:3000/compras").then((res) => {
+        fetch("https://sistemagestaocomercial.onrender.com/compras").then((res) => {
 
             return res.json()
 
@@ -43,7 +43,7 @@ const ComprasNumero = () => {
         
               if (result.isConfirmed) {
         
-                fetch("http://localhost:3000/compras/" + id, {
+                fetch("https://sistemagestaocomercial.onrender.com/compras/" + id, {
         
                   method: "DELETE"
         
@@ -112,7 +112,7 @@ const ComprasNumero = () => {
     
             const cadobj = { nome, total, data_cad, preco, compran, troco, valorpag }
     
-            fetch("http://localhost:3000/compras", {
+            fetch("https://sistemagestaocomercial.onrender.com/compras", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)
@@ -144,7 +144,7 @@ const ComprasNumero = () => {
             const numero = buscanumero;
             const register = { numero }
       
-              fetch("http://localhost:3000/compraatual", {
+              fetch("https://sistemagestaocomercial.onrender.com/compraatual", {
                   method: "POST",
                   headers: { 'content-type': 'application/json' },
                   body: JSON.stringify(register)

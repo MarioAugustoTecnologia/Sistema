@@ -12,7 +12,7 @@ const Entradas = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/vendas").then((res) => {
+    fetch("https://sistemagestaocomercial.onrender.com/vendas").then((res) => {
 
       return res.json()
 
@@ -40,7 +40,7 @@ const Entradas = () => {
       if (result.isConfirmed) {
 
 
-        fetch("http://localhost:3000/vendas/" + id, {
+        fetch("https://sistemagestaocomercial.onrender.com/vendas/" + id, {
 
           method: "DELETE"
 
@@ -75,7 +75,7 @@ const Entradas = () => {
 
         for (let id = 0; id <= vendasdata.length; id++) {
 
-          fetch("http://localhost:3000/vendas/" + id, {
+          fetch("https://sistemagestaocomercial.onrender.com/vendas/" + id, {
 
             method: "DELETE"
 
@@ -96,8 +96,6 @@ const Entradas = () => {
     });
 
   }
-
-
 
   const logout = () => {
     localStorage.clear()

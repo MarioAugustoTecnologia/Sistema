@@ -18,7 +18,7 @@ const EntradasNome = () => {
   
   useEffect(() => {
 
-    fetch("http://localhost:3000/vendas").then((res) => {
+    fetch("https://sistemagestaocomercial.onrender.com/vendas").then((res) => {
 
     return res.json()
 
@@ -46,7 +46,7 @@ const EntradasNome = () => {
       if (result.isConfirmed) {
 
 
-        fetch("http://localhost:3000/vendas/" + id, {
+        fetch("https://sistemagestaocomercial.onrender.com/vendas/" + id, {
 
           method: "DELETE"
 
@@ -78,14 +78,20 @@ function somar(){
     valores.push(item.total)
   })
 
-  let soma = valores.reduce((previous_value, current_value) => {      
-    return parseFloat(previous_value) + parseFloat(current_value);    
-  })
+  if(vendadata.filter(item => item.mes == 'Fevereiro' )){
 
-  const total = soma.toFixed(2);
-  document.getElementById('total').innerHTML = total;
+    let soma = valores.reduce((previous_value, current_value) => {      
+      return parseFloat(previous_value) + parseFloat(current_value);    
+    })
+  
+    const total = soma.toFixed(2);
+    document.getElementById('total').innerHTML = total;
+  
+    }
 
   }
+
+  
 
 } 
 
