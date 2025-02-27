@@ -121,7 +121,7 @@ const CadUsuarios = () => {
                 
         if (result.isConfirmed) {
           
-          fetch("https://sistemagestaocomercial.onrender.com/usuarios", {
+          fetch("http://localhost:3000/usuarios", {
             method: "POST",
             headers: {'content-type':'application/json'},
             body: JSON.stringify(cadobj)

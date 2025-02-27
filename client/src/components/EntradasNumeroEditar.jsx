@@ -11,7 +11,7 @@ const EntradasNumeroEditar = () => {
   const { entradacod } = useParams()
 
   useEffect(() => {
-    fetch("https://sistemagestaocomercial.onrender.com/vendas/" + entradacod).then((res) => {
+    fetch("http://localhost:3000/vendas/" + entradacod).then((res) => {
       return res.json();
     }).then((resp) => {
       vendanchange(resp.vendan);
@@ -140,7 +140,7 @@ const EntradasNumeroEditar = () => {
             if (result.isConfirmed) {
 
 
-              fetch("https://sistemagestaocomercial.onrender.com/vendas/" + entradacod, {
+              fetch("http://localhost:3000/vendas/" + entradacod, {
                 method: "PUT",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(edtobj)
@@ -180,7 +180,7 @@ const EntradasNumeroEditar = () => {
 
             if (result.isConfirmed) {
 
-              fetch("https://sistemagestaocomercial.onrender.com/vendas/" + entradacod, {
+              fetch("http://localhost:3000/vendas/" + entradacod, {
                 method: "PUT",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(edtobj)
@@ -228,7 +228,7 @@ const EntradasNumeroEditar = () => {
 
           if (result.isConfirmed) {
 
-            fetch("https://sistemagestaocomercial.onrender.com/vendas/" + entradacod, {
+            fetch("http://localhost:3000/vendas/" + entradacod, {
               method: "PUT",
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(edtobj)
@@ -268,7 +268,7 @@ const EntradasNumeroEditar = () => {
           if (result.isConfirmed) {
 
 
-            fetch("https://sistemagestaocomercial.onrender.com/vendas/" + entradacod, {
+            fetch("http://localhost:3000/vendas/" + entradacod, {
               method: "PUT",
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(edtobj)
@@ -307,7 +307,7 @@ const EntradasNumeroEditar = () => {
 
           if (result.isConfirmed) {
 
-            fetch("https://sistemagestaocomercial.onrender.com/vendas/" + entradacod, {
+            fetch("http://localhost:3000/vendas/" + entradacod, {
               method: "PUT",
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(edtobj)
@@ -348,7 +348,7 @@ const EntradasNumeroEditar = () => {
           if (result.isConfirmed) {
 
 
-            fetch("https://sistemagestaocomercial.onrender.com/vendas", {
+            fetch("http://localhost:3000/vendas", {
               method: "POST",
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(cadobj)

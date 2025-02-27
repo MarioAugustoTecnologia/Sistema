@@ -11,7 +11,7 @@ const FornecedorCatEditar = () => {
   const { catcod } = useParams()
 
   useEffect(() => {
-    fetch("https://sistemagestaocomercial.onrender.com/catfornecedor/" + catcod).then((res) => {
+    fetch("http://localhost:3000/catfornecedor/" + catcod).then((res) => {
       return res.json();
     }).then((resp) => {
       nomechange(resp.nome); 
@@ -70,7 +70,7 @@ const FornecedorCatEditar = () => {
                             
                     if (result.isConfirmed) {
 
-                      fetch("https://sistemagestaocomercial.onrender.com/catfornecedor/" + catcod, {
+                      fetch("http://localhost:3000/catfornecedor/" + catcod, {
                         method: "PUT",
                         headers: {'content-type':'application/json'},
                         body: JSON.stringify(edtdobj)

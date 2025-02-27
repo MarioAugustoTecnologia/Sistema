@@ -13,7 +13,7 @@ const CatFornecedores = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://sistemagestaocomercial.onrender.com/catfornecedor").then((res) => {
+    fetch("http://localhost:3000/catfornecedor").then((res) => {
 
     return res.json()
 
@@ -26,7 +26,7 @@ const CatFornecedores = () => {
     }) 
   }, [])  
   
-  const handleDelete = (id) => { 
+  const handleDelete = (id) => {
     
     
      Swal.fire({
@@ -39,7 +39,7 @@ const CatFornecedores = () => {
                               
                       if (result.isConfirmed) {
 
-                        fetch("https://sistemagestaocomercial.onrender.com/catfornecedor/" + id, {
+                        fetch("http://localhost:3000/catfornecedor/" + id, {
 
                           method: "DELETE"    
               

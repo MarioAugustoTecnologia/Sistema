@@ -18,7 +18,7 @@ const ComprasData = () => {
 
   useEffect(() => {
 
-    fetch("https://sistemagestaocomercial.onrender.com/compras").then((res) => {
+    fetch("http://localhost:3000/compras").then((res) => {
 
       return res.json()
 
@@ -45,7 +45,7 @@ const ComprasData = () => {
 
       if (result.isConfirmed) {
 
-        fetch("https://sistemagestaocomercial.onrender.com/compras/" + id, {
+        fetch("http://localhost:3000/compras/" + id, {
 
           method: "DELETE"
 

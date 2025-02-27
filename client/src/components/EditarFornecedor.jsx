@@ -12,7 +12,7 @@ const EditarFornecedor = () => {
     //const [empdata, empdatachange] = useState({});
 
     useEffect(() => {
-        fetch("https://sistemagestaocomercial.onrender.com/fornecedor/" + forcod).then((res) => {
+        fetch("http://localhost:3000/fornecedor/" + forcod).then((res) => {
             return res.json();
         }).then((resp) => {
             idchange(resp.id);
@@ -43,7 +43,7 @@ const EditarFornecedor = () => {
     const [fone, fonechange] = useState("")
 
     useEffect(() => {
-        fetch("https://sistemagestaocomercial.onrender.com/catfornecedor").then((res) => {
+        fetch("http://localhost:3000/catfornecedor").then((res) => {
 
             return res.json()
 
@@ -239,7 +239,7 @@ const EditarFornecedor = () => {
                     const datacad = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
                     const edtobj = { nome, endereco, comp, cep, cidade, email, fone, datacad, catforn, numero }
 
-                    fetch("https://sistemagestaocomercial.onrender.com/fornecedor/" + forcod, {
+                    fetch("http://localhost:3000/fornecedor/" + forcod, {
                         method: "PUT",
                         headers: { 'content-type': 'application/json' },
                         body: JSON.stringify(edtobj)

@@ -17,7 +17,7 @@ const ClientesCpf = () => {
 
   useEffect(() => {
 
-    fetch("https://sistemagestaocomercial.onrender.com/clientes").then((res) => {
+    fetch("http://localhost:3000/clientes").then((res) => {
 
       return res.json()
 
@@ -49,7 +49,7 @@ const ClientesCpf = () => {
 
       if (result.isConfirmed) {
 
-        fetch("https://sistemagestaocomercial.onrender.com/clientes/" + id, {
+        fetch("http://localhost:3000/clientes/" + id, {
 
           method: "DELETE"
 

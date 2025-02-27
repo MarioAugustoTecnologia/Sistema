@@ -7,16 +7,15 @@ import Swal from 'sweetalert2';
 
 const EntradasNumero = () => {
 
-
     const [vendanumero, setVendaNumero] = useState([]);
     const [buscanumero, setBuscaNumero] = React.useState("")
-
+             
     var table = vendanumero.filter(item => item.vendan.includes(buscanumero))
 
 
     useEffect(() => {
 
-        fetch("https://sistemagestaocomercial.onrender.com/vendas").then((res) => {
+        fetch("http://localhost:3000/vendas").then((res) => {
 
             return res.json()
 
@@ -43,7 +42,7 @@ const EntradasNumero = () => {
 
             if (result.isConfirmed) {
 
-                fetch("https://sistemagestaocomercial.onrender.com/vendas/" + id, {
+                fetch("http://localhost:3000/vendas/" + id, {
 
                     method: "DELETE"
 
@@ -109,7 +108,7 @@ const EntradasNumero = () => {
 
             const cadobj = { nome, total, data, preco, vendan, troco, valorpag }
 
-            fetch("https://sistemagestaocomercial.onrender.com/vendas", {
+            fetch("http://localhost:3000/vendas", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)
@@ -138,7 +137,7 @@ const EntradasNumero = () => {
             const numero = buscanumero;
             const register = { numero }
 
-            fetch("https://sistemagestaocomercial.onrender.com/atual", {
+            fetch("http://localhost:3000/atual", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(register)
@@ -149,8 +148,6 @@ const EntradasNumero = () => {
             }).catch((err) => {
                 toast.error('Erro ! :' + err.message)
             })
-
-
         }
     }
 

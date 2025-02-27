@@ -19,7 +19,7 @@ const ProdutosCat = () => {
     
     useEffect(() => {
   
-      fetch("https://sistemagestaocomercial.onrender.com/produtos").then((res) => {
+      fetch("http://localhost:3000/produtos").then((res) => {
   
       return res.json()
   
@@ -53,7 +53,7 @@ const ProdutosCat = () => {
          
                  for (let id = 0; id <= produtodata.length; id++) {
          
-                   fetch("https://sistemagestaocomercial.onrender.com/produtos/" + id, {
+                   fetch("http://localhost:3000/produtos/" + id, {
          
                      method: "DELETE"
          

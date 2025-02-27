@@ -11,7 +11,7 @@ const CadProdutos = () => {
   const {compracod} = useParams()
 
   useEffect(() => {
-    fetch("https://sistemagestaocomercial.onrender.com/compras/" + compracod).then((res) => {
+    fetch("http://localhost:3000/compras/" + compracod).then((res) => {
         return res.json();
     }).then((resp) => {
       idchange(resp.id);
@@ -35,7 +35,7 @@ const CadProdutos = () => {
 
 
   useEffect(() => {
-    fetch("https://sistemagestaocomercial.onrender.com/catproduto").then((res) => {
+    fetch("http://localhost:3000/catproduto").then((res) => {
 
       return res.json()
   
@@ -140,7 +140,7 @@ function MudaCorNome(){
                                 
                         if (result.isConfirmed) {
 
-                            fetch("https://sistemagestaocomercial.onrender.com/produtos", {
+                            fetch("http://localhost:3000/produtos", {
                               method: "POST",
                               headers: {'content-type':'application/json'},
                               body: JSON.stringify(cadobj)
