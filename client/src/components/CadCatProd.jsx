@@ -58,7 +58,7 @@ const CadCatProd = () => {
                             
                     if (result.isConfirmed) {
       
-                      fetch("http://localhost:3000/catproduto", {
+                      fetch("https://sistema-p7bl.onrender.com/catproduto", {
                         method: "POST",
                         headers: {'content-type':'application/json'},
                         body: JSON.stringify(cadobj)

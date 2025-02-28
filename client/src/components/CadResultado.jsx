@@ -76,7 +76,7 @@ const CadResultado = () => {
 
         if (result.isConfirmed) {
 
-          fetch("http://localhost:3000/resultados", {
+          fetch("https://sistema-p7bl.onrender.com/resultados", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(cadobj)

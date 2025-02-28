@@ -15,10 +15,9 @@ const ComprasData = () => {
   var table = compradata.filter(item => item.data_cad.includes(buscadata))
 
 
-
   useEffect(() => {
 
-    fetch("http://localhost:3000/compras").then((res) => {
+    fetch("https://sistema-p7bl.onrender.com/compras").then((res) => {
 
       return res.json()
 
@@ -45,7 +44,7 @@ const ComprasData = () => {
 
       if (result.isConfirmed) {
 
-        fetch("http://localhost:3000/compras/" + id, {
+        fetch("https://sistema-p7bl.onrender.com/compras/" + id, {
 
           method: "DELETE"
 

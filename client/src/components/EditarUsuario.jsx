@@ -14,7 +14,7 @@ const EditarUsuario = () => {
     //const [empdata, empdatachange] = useState({});
 
     useEffect(() => {
-        fetch("http://localhost:3000/usuarios/" + usuariocod).then((res) => {
+        fetch("https://sistema-p7bl.onrender.com/usuarios/" + usuariocod).then((res) => {
             return res.json();
         }).then((resp) => {
             idchange(resp.id);
@@ -28,7 +28,6 @@ const EditarUsuario = () => {
             console.log(err.message);
         })
     }, []);
-
 
 
     const [id, idchange] = useState("") //=> Nome de usuario obrigatório campo (id)
@@ -127,7 +126,7 @@ const EditarUsuario = () => {
                 }).then((result) => {
                  
                   if (result.isConfirmed) {
-                    fetch("http://localhost:3000/usuarios/" + usuariocod, {
+                    fetch("https://sistema-p7bl.onrender.com/usuarios/" + usuariocod, {
                       method: "PUT",
                       headers: {'content-type':'application/json'},
                       body: JSON.stringify(edtobj)
@@ -172,7 +171,7 @@ const EditarUsuario = () => {
                   /* Read more about isConfirmed, isDenied below */
                   if (result.isConfirmed) {
 
-                    fetch("http://localhost:3000/usuarios/" + usuariocod, {
+                    fetch("https://sistema-p7bl.onrender.com/usuarios/" + usuariocod, {
                       method: "PUT",
                       headers: {'content-type':'application/json'},
                       body: JSON.stringify(edtobj)
@@ -216,10 +215,7 @@ const EditarUsuario = () => {
   function MostraSenha(){
     document.getElementById('senha').style.borderColor = 'GainsBoro';
   }
-
-
-
-
+  
   const logout = () => {
     localStorage.clear()
     console.clear();

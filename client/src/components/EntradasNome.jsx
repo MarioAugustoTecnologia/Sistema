@@ -18,7 +18,7 @@ const EntradasNome = () => {
   
   useEffect(() => {
 
-    fetch("https://sistemagestaocomercial.onrender.com/vendas").then((res) => {
+    fetch("https://sistema-p7bl.onrender.com/vendas").then((res) => {
 
     return res.json()
 
@@ -46,7 +46,7 @@ const EntradasNome = () => {
       if (result.isConfirmed) {
 
 
-        fetch("https://sistemagestaocomercial.onrender.com/vendas/" + id, {
+        fetch("https://sistema-p7bl.onrender.com/vendas/" + id, {
 
           method: "DELETE"
 
@@ -88,8 +88,7 @@ function somar(){
     document.getElementById('total').innerHTML = total;
   
     }
-
-  }  
+  } 
 
 } 
 

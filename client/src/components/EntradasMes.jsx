@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 
-const EntradasMes = () => { 
-  
+const EntradasMes = () => {   
 
   const [vendasmes, setVendasmes] = useState([]);
   const [buscames, setBuscaMes] = React.useState("")
@@ -18,7 +17,7 @@ const EntradasMes = () => {
   
   useEffect(() => {
 
-    fetch("https://sistemagestaocomercial.onrender.com/vendas").then((res) => {
+    fetch("https://sistema-p7bl.onrender.com/vendas").then((res) => {
 
     return res.json()
 
@@ -46,7 +45,7 @@ const EntradasMes = () => {
          if (result.isConfirmed) {
    
    
-           fetch("https://sistemagestaocomercial.onrender.com/vendas/" + id, {
+           fetch("https://sistema-p7bl.onrender.com/vendas/" + id, {
    
              method: "DELETE"
    
@@ -103,7 +102,7 @@ function formataData(){
   
   const cadobj = {nome, total, data, preco, mes, vendan, troco, valorpag}  
   
-   fetch("https://sistemagestaocomercial.onrender.com/vendas", {
+   fetch("https://sistema-p7bl.onrender.com/vendas", {
      method: "POST",
      headers: {'content-type':'application/json'},
      body: JSON.stringify(cadobj)

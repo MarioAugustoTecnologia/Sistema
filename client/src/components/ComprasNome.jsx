@@ -5,8 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Swal from 'sweetalert2';
 
 
-const ComprasNome = () => { 
-  
+const ComprasNome = () => {  
 
   const [compradata, setCompradata] = useState([])
   const [buscanome, setBuscaNome] = React.useState("")
@@ -18,7 +17,7 @@ const ComprasNome = () => {
   
   useEffect(() => {
 
-    fetch("http://localhost:3000/compras").then((res) => {
+    fetch("https://sistema-p7bl.onrender.com/compras").then((res) => {
 
     return res.json()
 
@@ -45,7 +44,7 @@ const ComprasNome = () => {
       
             if (result.isConfirmed) {
       
-              fetch("http://localhost:3000/compras/" + id, {
+              fetch("https://sistema-p7bl.onrender.com/compras/" + id, {
       
                 method: "DELETE"
       
