@@ -8,6 +8,15 @@
       "fone": "15 33662014",
       "datanascimento": "20/05/1983",
       "categoria": "Programador"
+    },
+    {
+      "id": "User2",
+      "cod": "2",
+      "email": "user2@email.com",
+      "hashedPassword": "$2a$10$bpnJ42BWbNFBGLRrKJsogOfB3fZ20ospAfSyDl4n2OWyuRgkHCkrG",
+      "fone": "14 9966634",
+      "datanascimento": "14/02/1996",
+      "categoria": "Programador"
     }
   ],
   "vendas": [
